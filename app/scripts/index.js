@@ -33,16 +33,21 @@ $(function(){
     myFirebaseRef.authWithPassword(formData,function(error,authData){
         if (error) {
         console.log("Login Failed!", error);
+        alert('Login Failed User does not exist');
       } else {
         console.log("Authenticated successfully with payload:", authData);
         auth = authData.token;
         user = formData.email;
+        $('.chat-container').toggleClass('hidden');
+        $('.login-feilds').toggleClass('hidden');
         console.log(user);
       }
     });
   $('#logout').on('submit',function(event){
     event.preventDefault();
     myFirebaseRef.unauth();
+    $('.chat-container').addClass('hidden');
+    $('.login-feilds').removeClass('hidden');
     console.log("successfully loged out");
   });
   });

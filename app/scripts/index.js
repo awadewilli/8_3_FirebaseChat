@@ -38,7 +38,7 @@ $(function(){
         console.log("Authenticated successfully with payload:", authData);
         auth = authData.token;
         user = formData.email;
-        $('.chat-container').toggleClass('hidden');
+        $('.chat-container').removeClass('hidden');
         $('.login-feilds').toggleClass('hidden');
         console.log(user);
       }
